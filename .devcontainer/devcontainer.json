@@ -1,0 +1,14 @@
+{
+    "name": "L-ZERO System SW Track",
+    "image": "automale/lzero-sw:v1",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.makefile-tools"
+            ]
+        }
+    },
+    "remoteUser": "root"
+}
