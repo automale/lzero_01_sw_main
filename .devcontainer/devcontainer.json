@@ -1,6 +1,6 @@
 {
     "name": "L-ZERO System SW Track",
-    "image": "automale/lzero-sw:v1",
+    "image": "automale/lzero-sw:v2",
     
     // [비기 1] OS 커널 디버깅(GDB)을 위한 도커 보안 권한 해제 (필수)
     "runArgs": [
