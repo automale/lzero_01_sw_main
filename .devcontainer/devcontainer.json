@@ -1,14 +1,33 @@
 {
     "name": "L-ZERO System SW Track",
     "image": "automale/lzero-sw:v1",
+    
+    // [비기 1] OS 커널 디버깅(GDB)을 위한 도커 보안 권한 해제 (필수)
+    "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt", "seccomp=unconfined"
+    ],
+    
     "customizations": {
         "vscode": {
+            "settings": {
+                // [비기 2] Clang 기반 IntelliSense 설정 (빨간줄 방지)
+                "C_Cpp.default.compilerPath": "/usr/bin/clang",
+                "C_Cpp.default.cStandard": "c11",
+                "C_Cpp.intelliSenseEngine": "default"
+            },
             "extensions": [
                 "ms-vscode.cpptools",
                 "ms-vscode.cpptools-extension-pack",
-                "ms-vscode.makefile-tools"
+                "ms-vscode.makefile-tools",
+                // RISC-V 어셈블리(.S) 파일 문법 하이라이팅 지원
+                "1x1.riscv-assembly" 
             ]
         }
     },
+    
+    // [비기 3] 호스트(윈도우/맥)와 도커 간 Git 소유권 충돌 방지
+    "postCreateCommand": "git config --global --add safe.directory /workspaces/*",
+    
     "remoteUser": "root"
 }
