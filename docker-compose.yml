@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  lzero-sw-env:
+    build: .
+    container_name: lzero_sw_env
+    volumes:
+      - .:/workspaces/lzero_01_sw_main
+    tty: true
